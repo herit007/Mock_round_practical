@@ -1,0 +1,14 @@
+-- Create a table named "Measures": Home > Enter Data > (empty table) > name it Measures > Load.
+-- Then select the Measures table and add each measure via Modeling > New measure.
+
+Assessment Count = COUNTROWS(assessments)
+
+Avg Score = AVERAGE(assessments[score])
+
+Pass Rate =
+DIVIDE(
+    COUNTROWS(FILTER(assessments, assessments[score] >= 50)),
+    COUNTROWS(assessments),
+    0
+)
+-- Format "Pass Rate" as Percentage (2 decimals); format "Avg Score" as Decimal number (2 decimals).
